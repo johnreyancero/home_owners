@@ -1,0 +1,116 @@
+/* _content/home_owners/Pages/Shared/_Layout.cshtml.rz.scp.css */
+/* Navbar Styling */
+.navbar[b-ljcsvqcn1u] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+
+    .navbar img[b-ljcsvqcn1u] {
+        height: 40px; /* Adjust logo size */
+        width: auto;
+        margin-right: 10px;
+    }
+
+    .navbar ul[b-ljcsvqcn1u] {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+    }
+
+        .navbar ul li[b-ljcsvqcn1u] {
+            display: inline;
+        }
+
+            .navbar ul li a[b-ljcsvqcn1u] {
+                color: white;
+                text-decoration: none;
+                font-weight: bold;
+                padding: 10px;
+            }
+
+.navbar-brand img[b-ljcsvqcn1u] {
+    height: 40px; /* Adjust the logo size */
+    max-width: 150px;
+}
+
+.navbar-nav .nav-link[b-ljcsvqcn1u] {
+    color: white !important;
+    font-weight: 500;
+    margin: 0 10px;
+    transition: color 0.3s ease-in-out;
+}
+
+    .navbar-nav .nav-link:hover[b-ljcsvqcn1u] {
+        color: #f4e1c1 !important; /* Light Gold on Hover */
+    }
+
+/* Adjust Navbar Button (Mobile) */
+.navbar-toggler[b-ljcsvqcn1u] {
+    border: none;
+}
+
+.navbar-toggler-icon[b-ljcsvqcn1u] {
+    background-color: white;
+}
+
+/* Adjust Branding Text */
+a.navbar-brand[b-ljcsvqcn1u] {
+    white-space: nowrap;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: white !important;
+}
+
+/* Button Styling */
+.btn-primary[b-ljcsvqcn1u] {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+    transition: background-color 0.3s ease-in-out;
+}
+
+    .btn-primary:hover[b-ljcsvqcn1u] {
+        background-color: #155a9c;
+        border-color: #144e8a;
+    }
+
+/* Footer Styling */
+.footer[b-ljcsvqcn1u] {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #c3924f;
+    color: white;
+    text-align: center;
+    line-height: 60px;
+}
+
+    .footer a[b-ljcsvqcn1u] {
+        color: #fff;
+        text-decoration: none;
+    }
+
+        .footer a:hover[b-ljcsvqcn1u] {
+            text-decoration: underline;
+        }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .navbar-nav[b-ljcsvqcn1u] {
+        text-align: center;
+    }
+
+        .navbar-nav .nav-link[b-ljcsvqcn1u] {
+            margin: 5px 0;
+        }
+}

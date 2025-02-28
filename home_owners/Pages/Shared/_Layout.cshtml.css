@@ -1,0 +1,115 @@
+﻿/* Navbar Styling */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+
+    .navbar img {
+        height: 40px; /* Adjust logo size */
+        width: auto;
+        margin-right: 10px;
+    }
+
+    .navbar ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+    }
+
+        .navbar ul li {
+            display: inline;
+        }
+
+            .navbar ul li a {
+                color: white;
+                text-decoration: none;
+                font-weight: bold;
+                padding: 10px;
+            }
+
+.navbar-brand img {
+    height: 40px; /* Adjust the logo size */
+    max-width: 150px;
+}
+
+.navbar-nav .nav-link {
+    color: white !important;
+    font-weight: 500;
+    margin: 0 10px;
+    transition: color 0.3s ease-in-out;
+}
+
+    .navbar-nav .nav-link:hover {
+        color: #f4e1c1 !important; /* Light Gold on Hover */
+    }
+
+/* Adjust Navbar Button (Mobile) */
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler-icon {
+    background-color: white;
+}
+
+/* Adjust Branding Text */
+a.navbar-brand {
+    white-space: nowrap;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: white !important;
+}
+
+/* Button Styling */
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+    transition: background-color 0.3s ease-in-out;
+}
+
+    .btn-primary:hover {
+        background-color: #155a9c;
+        border-color: #144e8a;
+    }
+
+/* Footer Styling */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #c3924f;
+    color: white;
+    text-align: center;
+    line-height: 60px;
+}
+
+    .footer a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+    }
+
+        .navbar-nav .nav-link {
+            margin: 5px 0;
+        }
+}

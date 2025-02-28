@@ -1,0 +1,79 @@
+/* General Styles */
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    padding-top: 0; /* Adjust based on navbar height */
+    margin-bottom: 60px;
+}
+
+/* Hero Section */
+.hero-section {
+    background: url('/images/bg.png') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+/* Center Content */
+.hero-content {
+    position: relative;
+    z-index: 1; /* Ensures text & image appear above overlay */
+}
+
+/* Lagkaw Logo */
+.hero-logo {
+    width: 400px; /* Adjust size as needed */
+    margin-bottom: 0px;
+    margin-top: 70px;
+}
+
+.display-4 {
+    font-size: 30px;
+    font-weight: 600;
+    color: #011311;
+    margin-top: -10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Hero Text */
+.hero-text {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    margin-top: 35px;
+    text-align: center; /* Centers the text */
+    white-space: pre-line; /* Allows <br> to work */
+}
+
+.highlight {
+    color: #011311;
+    font-weight: bold;
+}
+
+/* Yellow Button */
+.btn-yellow {
+    background-color: #F99F25;
+    color: #F5F5F5;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+}
+
+    .btn-yellow:hover {
+        background-color: #E6C200;
+        color: white;
+    }
+
+/* Page 2 Section */
