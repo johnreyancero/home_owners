@@ -1,6 +1,7 @@
 wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\images\bg.png
+wwwroot\images\bike.png
 wwwroot\images\lagkaw.png
 wwwroot\images\lagkawputi.png
 wwwroot\js\site.js
