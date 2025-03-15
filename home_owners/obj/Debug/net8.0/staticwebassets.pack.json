@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\images\\PAGE2OK.png"
     },
     {
+      "Id": "C:\\Users\\tt404\\Source\\Repos\\home_owners\\home_owners\\wwwroot\\images\\about.png",
+      "PackagePath": "staticwebassets\\images\\about.png"
+    },
+    {
       "Id": "C:\\Users\\tt404\\Source\\Repos\\home_owners\\home_owners\\wwwroot\\images\\amenities.png",
       "PackagePath": "staticwebassets\\images\\amenities.png"
     },
@@ -27,6 +31,10 @@
     {
       "Id": "C:\\Users\\tt404\\Source\\Repos\\home_owners\\home_owners\\wwwroot\\images\\bike.png",
       "PackagePath": "staticwebassets\\images\\bike.png"
+    },
+    {
+      "Id": "C:\\Users\\tt404\\Source\\Repos\\home_owners\\home_owners\\wwwroot\\images\\contact.png",
+      "PackagePath": "staticwebassets\\images\\contact.png"
     },
     {
       "Id": "C:\\Users\\tt404\\Source\\Repos\\home_owners\\home_owners\\wwwroot\\images\\lagkaw.png",

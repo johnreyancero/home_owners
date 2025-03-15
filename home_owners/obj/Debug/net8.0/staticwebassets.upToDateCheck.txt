@@ -1,8 +1,10 @@
 wwwroot\css\site.css
 wwwroot\favicon.ico
+wwwroot\images\about.png
 wwwroot\images\amenities.png
 wwwroot\images\bg.png
 wwwroot\images\bike.png
+wwwroot\images\contact.png
 wwwroot\images\lagkaw.png
 wwwroot\images\lagkawputi.png
 wwwroot\images\PAGE2OK.png

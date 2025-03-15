@@ -27,11 +27,37 @@
         justify-content: center;
         align-items: center; /* This will create space at the top */
     }
+
+    .about{
+        background-image: url('/images/about.PNG');
+        background-size: contain;
+        background-repeat: no-repeat; /* Prevents tiling */
+        background-position: center top; /* Centers image, aligns top */
+        height: 100vh; /* Full screen height */
+        width: 100%; /* Full width */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .contact{
+        background-image: url('/images/contact.PNG');
+        background-size: contain;
+        background-repeat: no-repeat; /* Prevents tiling */
+        background-position: center top; /* Centers image, aligns top */
+        height: 100vh; /* Full screen height */
+        width: 100%; /* Full width */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
 </style>
 
 <!-- BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB -->
 
-<div style="margin-top: 1300px;">
+<div style="margin-top: 3200px;">
     <div class="PAGE2">
         <!-- Content -->
     </div>
@@ -47,16 +73,46 @@
 </div>
 
 <!-- ASDASDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD -->
+<div style="margin-top: 0px;" id="about" class="about">
+    <div>
+        
+    </div>
+
+</div>
+
+<!-- ASDASDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD -->
+
+<div style="margin-top: 0px;" id="contact" class="contact">
+    <div>
+    </div>
+
+</div>
+
+
+<!-- ASDASDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD -->
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        // Check if the URL has #amenities
-        if (window.location.hash === "#amenities") {
-            // Scroll to the amenities section smoothly
+        // Get the current hash in the URL
+        const hash = window.location.hash;
+
+        if (hash === "#amenities") {
             const amenitiesSection = document.getElementById("amenities");
             if (amenitiesSection) {
                 amenitiesSection.scrollIntoView({ behavior: "smooth" });
             }
+        } else if (hash === "#about") {
+            const aboutSection = document.getElementById("about");
+            if (aboutSection) {
+                aboutSection.scrollIntoView({ behavior: "smooth" });
+            }
+        } else if (hash === "#contact") {
+            const contactSection = document.getElementById("contact");
+            if (contactSection) {
+                contactSection.scrollIntoView({ behavior: "smooth" });
+            }
         }
     });
 </script>
+
+

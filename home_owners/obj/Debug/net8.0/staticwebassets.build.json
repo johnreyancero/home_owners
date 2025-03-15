@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "MF4jjAnPDlJ1ztOdTycvC0kPQRG/vLNFFNcB5f0QLbI=",
+  "Hash": "ERkNCZ6rF1TQNH+cn7+9R0Yeeh1AvV5d/nPiQhZdRs0=",
   "Source": "home_owners",
   "BasePath": "_content/home_owners",
   "Mode": "Default",
@@ -1361,6 +1361,27 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "C:\\Users\\tt404\\Source\\Repos\\home_owners\\home_owners\\wwwroot\\images\\about.png",
+      "SourceId": "home_owners",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tt404\\Source\\Repos\\home_owners\\home_owners\\wwwroot\\",
+      "BasePath": "_content/home_owners",
+      "RelativePath": "images/about#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ptr25vokx3",
+      "Integrity": "o4UQMaNCElXneVnMLhxYnyl0wkABJlbDBa7qWgHWsH8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\about.png"
+    },
+    {
       "Identity": "C:\\Users\\tt404\\Source\\Repos\\home_owners\\home_owners\\wwwroot\\images\\amenities.png",
       "SourceId": "home_owners",
       "SourceType": "Discovered",
@@ -1422,6 +1443,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\bike.png"
+    },
+    {
+      "Identity": "C:\\Users\\tt404\\Source\\Repos\\home_owners\\home_owners\\wwwroot\\images\\contact.png",
+      "SourceId": "home_owners",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tt404\\Source\\Repos\\home_owners\\home_owners\\wwwroot\\",
+      "BasePath": "_content/home_owners",
+      "RelativePath": "images/contact#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "l8457kp3p6",
+      "Integrity": "S9T/DsY9OYLQrRaj49tW9bAyaZG8C0bB/clXW+aJkRY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\contact.png"
     },
     {
       "Identity": "C:\\Users\\tt404\\Source\\Repos\\home_owners\\home_owners\\wwwroot\\images\\lagkaw.png",
@@ -5255,6 +5297,88 @@
       ]
     },
     {
+      "Route": "images/about.png",
+      "AssetFile": "C:\\Users\\tt404\\Source\\Repos\\home_owners\\home_owners\\wwwroot\\images\\about.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "100562"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"o4UQMaNCElXneVnMLhxYnyl0wkABJlbDBa7qWgHWsH8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 15 Mar 2025 07:33:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-o4UQMaNCElXneVnMLhxYnyl0wkABJlbDBa7qWgHWsH8="
+        }
+      ]
+    },
+    {
+      "Route": "images/about.ptr25vokx3.png",
+      "AssetFile": "C:\\Users\\tt404\\Source\\Repos\\home_owners\\home_owners\\wwwroot\\images\\about.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "100562"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"o4UQMaNCElXneVnMLhxYnyl0wkABJlbDBa7qWgHWsH8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 15 Mar 2025 07:33:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ptr25vokx3"
+        },
+        {
+          "Name": "label",
+          "Value": "images/about.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-o4UQMaNCElXneVnMLhxYnyl0wkABJlbDBa7qWgHWsH8="
+        }
+      ]
+    },
+    {
       "Route": "images/amenities.e5hjok7agr.png",
       "AssetFile": "C:\\Users\\tt404\\Source\\Repos\\home_owners\\home_owners\\wwwroot\\images\\amenities.png",
       "Selectors": [],
@@ -5497,6 +5621,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-RyqUwtl3Ja5KMiM5BsUshQkGN0L7heVLgGTftc8LgeU="
+        }
+      ]
+    },
+    {
+      "Route": "images/contact.l8457kp3p6.png",
+      "AssetFile": "C:\\Users\\tt404\\Source\\Repos\\home_owners\\home_owners\\wwwroot\\images\\contact.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "561522"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"S9T/DsY9OYLQrRaj49tW9bAyaZG8C0bB/clXW+aJkRY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 15 Mar 2025 07:38:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "l8457kp3p6"
+        },
+        {
+          "Name": "label",
+          "Value": "images/contact.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-S9T/DsY9OYLQrRaj49tW9bAyaZG8C0bB/clXW+aJkRY="
+        }
+      ]
+    },
+    {
+      "Route": "images/contact.png",
+      "AssetFile": "C:\\Users\\tt404\\Source\\Repos\\home_owners\\home_owners\\wwwroot\\images\\contact.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "561522"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"S9T/DsY9OYLQrRaj49tW9bAyaZG8C0bB/clXW+aJkRY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 15 Mar 2025 07:38:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-S9T/DsY9OYLQrRaj49tW9bAyaZG8C0bB/clXW+aJkRY="
         }
       ]
     },
