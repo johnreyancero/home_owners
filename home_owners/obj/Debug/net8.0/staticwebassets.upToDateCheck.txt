@@ -1,9 +1,11 @@
 wwwroot\css\site.css
 wwwroot\favicon.ico
+wwwroot\images\amenities.png
 wwwroot\images\bg.png
 wwwroot\images\bike.png
 wwwroot\images\lagkaw.png
 wwwroot\images\lagkawputi.png
+wwwroot\images\PAGE2OK.png
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
