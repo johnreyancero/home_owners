@@ -66,8 +66,8 @@ body {
     display: inline-block;
 }
 
-    .btn-yellow:hover {
+.btn-yellow:hover {
         background-color: #E6C200;
         color: white;
-    }
+}
 

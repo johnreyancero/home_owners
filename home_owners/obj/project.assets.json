@@ -4452,23 +4452,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tt404\\.nuget\\packages\\": {},
+    "C:\\Users\\tt415\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tt404\\Source\\Repos\\home_owners\\home_owners\\home_owners.csproj",
+      "projectUniqueName": "C:\\Users\\tt415\\Source\\Repos\\home_owners\\home_owners\\home_owners.csproj",
       "projectName": "home_owners",
-      "projectPath": "C:\\Users\\tt404\\Source\\Repos\\home_owners\\home_owners\\home_owners.csproj",
-      "packagesPath": "C:\\Users\\tt404\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tt404\\Source\\Repos\\home_owners\\home_owners\\obj\\",
+      "projectPath": "C:\\Users\\tt415\\Source\\Repos\\home_owners\\home_owners\\home_owners.csproj",
+      "packagesPath": "C:\\Users\\tt415\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tt415\\Source\\Repos\\home_owners\\home_owners\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\tt404\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\tt415\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
