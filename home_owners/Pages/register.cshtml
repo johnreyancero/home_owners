@@ -133,6 +133,10 @@
                 <input type="text" name="FirstName" placeholder="First Name" required>
                 <button type="submit">Register</button>
             </form>
+            @if (!string.IsNullOrEmpty(Model.Message))
+            {
+                <p>@Model.Message</p>
+            }
             <p class="login-link">Already have an account? <a href="/Login">Login here!</a></p>
         </div>
     </div>
