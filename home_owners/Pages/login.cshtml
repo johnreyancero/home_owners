@@ -136,6 +136,12 @@
                 <input type="password" name="Password" placeholder="Password" required>
                 <button type="submit">Login</button>
             </form>
+            @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+            {
+                <div style="color:red; font-weight:bold;">
+                    @Model.ErrorMessage
+                </div>
+            }
             <p class="register-link">No account yet? <a asp-page="/register">Register here!</a></p>
         </div>
     </div>

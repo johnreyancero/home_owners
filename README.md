@@ -1,4 +1,5 @@
 # home_owners
-test
-test2
-test 3
+database name: home_owners
+
+username: sample
+password: pass
