@@ -1,11 +1,22 @@
+using home_owners.Data;
+using home_owners.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Linq;
 
 namespace home_owners.Pages
 {
     public class Index2Model : PageModel
     {
+        private readonly ApplicationDbContext _context;
+
+        public Index2Model(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         [BindProperty]
         public string Username { get; set; }
 
@@ -16,10 +27,10 @@ namespace home_owners.Pages
 
         public IActionResult OnPost()
         {
-            if (IsValidUser(Username, Password)) // Replace with actual authentication logic
+            if (IsValidUser(Username, Password))
             {
                 HttpContext.Session.SetString("Username", Username);
-                return RedirectToPage("/Dashboard");
+                return RedirectToPage("/Index1");
             }
 
             ErrorMessage = "Invalid username or password.";
@@ -28,8 +39,14 @@ namespace home_owners.Pages
 
         private bool IsValidUser(string username, string password)
         {
-            // Replace this with actual authentication logic (e.g., database validation)
-            return username == "admin" && password == "password";
+            var user = _context.Users.SingleOrDefault(u => u.Username == username);
+            if (user == null)
+                return false;
+
+            var passwordHasher = new PasswordHasher<User>();
+            var result = passwordHasher.VerifyHashedPassword(user, user.Password, password);
+            
+            return result == PasswordVerificationResult.Success;
         }
     }
 }

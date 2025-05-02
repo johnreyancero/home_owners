@@ -1,15 +1,16 @@
 using home_owners.Data;
 using home_owners.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace home_owners.Pages
 {
-    public class registerModel : PageModel
+    public class RegisterModel : PageModel
     {
         private readonly ApplicationDbContext _context;
 
-        public registerModel(ApplicationDbContext context)
+        public RegisterModel(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -33,29 +34,32 @@ namespace home_owners.Pages
             // This method is called when the page is accessed via a GET request.
         }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
             if (!string.IsNullOrEmpty(Username) && !string.IsNullOrEmpty(Password) &&
                 !string.IsNullOrEmpty(LastName) && !string.IsNullOrEmpty(FirstName))
             {
-                // Create a new User object
                 var user = new User
                 {
                     Username = Username,
-                    Password = Password,
                     LastName = LastName,
                     FirstName = FirstName
                 };
 
-                // Save the user to the database
+                var passwordHasher = new PasswordHasher<User>();
+                user.Password = passwordHasher.HashPassword(user, Password);
+
                 _context.Users.Add(user);
                 _context.SaveChanges();
 
                 Message = $"User {FirstName} {LastName} with username '{Username}' has been registered successfully.";
+
+                return RedirectToPage("/login");
             }
             else
             {
                 Message = "All fields are required.";
+                return Page();
             }
         }
     }

@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@{
+    var username = Context.Session.GetString("Username");
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -31,9 +36,21 @@
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="/Index1#contact">Contact</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" asp-page="/login">Login/Register</a>
-                            </li>
+                            @if (!string.IsNullOrEmpty(username))
+                            {
+                                <li class="nav-item">
+                                    <span class="nav-link text-white">Welcome, @username</span>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-page="/logout">Logout</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-page="/login">Login/Register</a>
+                                </li>
+                            }
                         </ul>
                     </div>
                 </div>
