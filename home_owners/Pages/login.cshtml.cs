@@ -1,52 +1,68 @@
-using home_owners.Data;
 using home_owners.Models;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace home_owners.Pages
 {
-    public class Index2Model : PageModel
+    public class LoginModel : PageModel
     {
-        private readonly ApplicationDbContext _context;
+        private readonly Data.ApplicationDbContext _context;
 
-        public Index2Model(ApplicationDbContext context)
+        public LoginModel(Data.ApplicationDbContext context)
         {
             _context = context;
         }
 
         [BindProperty]
-        public string Username { get; set; }
-
-        [BindProperty]
-        public string Password { get; set; }
+        public LoginInputModel Input { get; set; } = new(); // <-- safer initialization
 
         public string ErrorMessage { get; set; }
 
-        public IActionResult OnPost()
+        public class LoginInputModel
         {
-            if (IsValidUser(Username, Password))
+            public string Username { get; set; }
+            public string Password { get; set; }
+            public bool RememberMe { get; set; }
+        }
+
+        public void OnGet()
+        {
+            // This line ensures Input is never null during GET
+            Input ??= new LoginInputModel();
+        }
+
+        public async Task<IActionResult> OnPostAsync()
+        {
+            if (string.IsNullOrWhiteSpace(Input?.Username) || string.IsNullOrWhiteSpace(Input?.Password))
             {
-                HttpContext.Session.SetString("Username", Username);
-                return RedirectToPage("/Index1");
+                ErrorMessage = "Please enter both username and password.";
+                return Page();
             }
 
-            ErrorMessage = "Invalid username or password.";
-            return Page();
-        }
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == Input.Username);
 
-        private bool IsValidUser(string username, string password)
-        {
-            var user = _context.Users.SingleOrDefault(u => u.Username == username);
             if (user == null)
-                return false;
+            {
+                ErrorMessage = "Invalid username or password.";
+                return Page();
+            }
 
-            var passwordHasher = new PasswordHasher<User>();
-            var result = passwordHasher.VerifyHashedPassword(user, user.Password, password);
-            
-            return result == PasswordVerificationResult.Success;
+            var hasher = new PasswordHasher<User>();
+            var result = hasher.VerifyHashedPassword(user, user.Password, Input.Password);
+
+            if (result == PasswordVerificationResult.Failed)
+            {
+                ErrorMessage = "Invalid username or password.";
+                return Page();
+            }
+
+            HttpContext.Session.SetString("UserId", user.Id.ToString());
+            HttpContext.Session.SetString("Username", user.Username);
+
+            return RedirectToPage("/Users/UserHomePage", new { userId = user.Id });
         }
     }
+
 }

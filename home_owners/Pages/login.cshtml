@@ -1,5 +1,5 @@
 ﻿@page
-@model home_owners.Pages.Index2Model
+@model home_owners.Pages.LoginModel
 @{
     Layout = null;
 }
@@ -24,7 +24,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 20px;
-            background: rgba(195, 146, 79, 0.8); /* Adjusted navbar color */
+            background: rgba(195, 146, 79, 0.8);
             position: fixed;
             width: 100%;
             top: 0;
@@ -32,9 +32,9 @@
             z-index: 1000;
         }
 
-            .navbar img {
-                height: 40px;
-            }
+        .navbar img {
+            height: 40px;
+        }
 
         .navbar-nav {
             list-style: none;
@@ -44,21 +44,21 @@
             padding: 0;
         }
 
-            .navbar-nav li {
-                display: inline;
-            }
+        .navbar-nav li {
+            display: inline;
+        }
 
-            .navbar-nav a {
-                text-decoration: none;
-                color: white;
-                font-size: 16px;
-                padding: 8px 12px;
-            }
+        .navbar-nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            padding: 8px 12px;
+        }
 
-                .navbar-nav a:hover {
-                    background: rgba(0, 0, 0, 0.1);
-                    border-radius: 5px;
-                }
+        .navbar-nav a:hover {
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
 
         .container {
             display: flex;
@@ -66,7 +66,7 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            padding-top: 60px; /* To prevent content from overlapping navbar */
+            padding-top: 60px;
         }
 
         .login-box {
@@ -76,41 +76,46 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             text-align: center;
             width: 450px;
-        
         }
 
-            .login-box img {
-                width: 120px;
-                margin-bottom: 20px;
-            }
+        .login-box img {
+            width: 120px;
+            margin-bottom: 20px;
+        }
 
-            .login-box input {
-                width: 90%;
-                padding: 10px;
-                margin: 10px 0;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-            }
+        .login-box input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
 
-            .login-box button {
-                background: #003d29;
-                color: white;
-                padding: 10px;
-                width: 100%;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-            }
+        .login-box button {
+            background: #003d29;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
         .register-link {
             margin-top: 10px;
             font-size: 14px;
         }
 
-            .register-link a {
-                color: #007bff;
-                text-decoration: none;
-            }
+        .register-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .error-message {
+            color: red;
+            font-weight: bold;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -132,17 +137,23 @@
         <div class="login-box">
             <img src="/images/lagkaw.png" alt="Logo">
             <form method="post">
-                <input type="text" name="Username" placeholder="Username" required>
-                <input type="password" name="Password" placeholder="Password" required>
+                <input type="text" name="Input.Username" placeholder="Username" value="@Model.Input.Username" required />
+                <input type="password" name="Input.Password" placeholder="Password" required />
+                <div class="form-check">
+                    <input type="checkbox" name="Input.RememberMe" class="form-check-input" id="rememberMe" />
+                    <label class="form-check-label" for="rememberMe">Remember me?</label>
+                </div>
                 <button type="submit">Login</button>
             </form>
+
             @if (!string.IsNullOrEmpty(Model.ErrorMessage))
             {
-                <div style="color:red; font-weight:bold;">
+                <div class="error-message">
                     @Model.ErrorMessage
                 </div>
             }
-            <p class="register-link">No account yet? <a asp-page="/register">Register here!</a></p>
+
+            <p class="register-link">No account yet? <a asp-page="/Register">Register here!</a></p>
         </div>
     </div>
 

@@ -8,14 +8,6 @@ namespace home_owners.Pages
     {
         public IActionResult OnGet()
         {
-            var username = HttpContext.Session.GetString("Username");
-            if (string.IsNullOrEmpty(username))
-            {
-                // Not logged in, redirect to login page
-                return RedirectToPage("/login"); // Adjust if your login page has a different name
-            }
-
-            // Otherwise, show the page
             return Page();
         }
     }
