@@ -1,26 +1,28 @@
-using home_owners.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
+using home_owners.Data; // Adjust namespace
+using home_owners.Models; // Your custom User model's namespace
+using System.Threading.Tasks;
+using System.Linq;
 
 namespace home_owners.Pages.Users
 {
     public class UserProfileModel : PageModel
     {
-        private readonly Data.ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public User User { get; set; }
-
-        public UserProfileModel(Data.ApplicationDbContext context)
+        public UserProfileModel(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // OnGetAsync to load the user profile by UserId
-        public async Task<IActionResult> OnGetAsync(int userId)
+        [BindProperty]
+        public User User { get; set; }
+
+        public async Task<IActionResult> OnGetAsync()
         {
-            // Get the user from the database
-            User = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
+            // Replace 1 with logic to get currently logged-in user's ID if needed
+            User = await _context.Users.FindAsync(0);
 
             if (User == null)
             {
@@ -30,7 +32,6 @@ namespace home_owners.Pages.Users
             return Page();
         }
 
-        // OnPostAsync to save updated user profile
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
@@ -38,30 +39,19 @@ namespace home_owners.Pages.Users
                 return Page();
             }
 
-            _context.Attach(User).State = EntityState.Modified;
-
-            try
+            var userToUpdate = await _context.Users.FindAsync(User.Id);
+            if (userToUpdate == null)
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!UserExists(User.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return NotFound();
             }
 
-            return RedirectToPage("/Users/UserProfile");
-        }
+            userToUpdate.FirstName = User.FirstName;
+            userToUpdate.LastName = User.LastName;
+            userToUpdate.Email = User.Email;
+            userToUpdate.ContactNumber = User.ContactNumber;
 
-        private bool UserExists(int id)
-        {
-            return _context.Users.Any(e => e.Id == id);
+            await _context.SaveChangesAsync();
+            return RedirectToPage(); // Refresh page after save
         }
     }
 }
