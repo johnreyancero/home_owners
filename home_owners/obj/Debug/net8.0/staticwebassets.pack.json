@@ -41,12 +41,40 @@
       "PackagePath": "staticwebassets\\images\\contact.png"
     },
     {
+      "Id": "C:\\Users\\User\\OneDrive\\Desktop\\homework\\elnet\\home_owners\\wwwroot\\images\\exit.png",
+      "PackagePath": "staticwebassets\\images\\exit.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\OneDrive\\Desktop\\homework\\elnet\\home_owners\\wwwroot\\images\\gear.png",
+      "PackagePath": "staticwebassets\\images\\gear.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\OneDrive\\Desktop\\homework\\elnet\\home_owners\\wwwroot\\images\\house-elite.png",
+      "PackagePath": "staticwebassets\\images\\house-elite.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\OneDrive\\Desktop\\homework\\elnet\\home_owners\\wwwroot\\images\\house-haven.png",
+      "PackagePath": "staticwebassets\\images\\house-haven.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\OneDrive\\Desktop\\homework\\elnet\\home_owners\\wwwroot\\images\\house-prime.png",
+      "PackagePath": "staticwebassets\\images\\house-prime.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\OneDrive\\Desktop\\homework\\elnet\\home_owners\\wwwroot\\images\\house.png",
+      "PackagePath": "staticwebassets\\images\\house.png"
+    },
+    {
       "Id": "C:\\Users\\User\\OneDrive\\Desktop\\homework\\elnet\\home_owners\\wwwroot\\images\\lagkaw.png",
       "PackagePath": "staticwebassets\\images\\lagkaw.png"
     },
     {
       "Id": "C:\\Users\\User\\OneDrive\\Desktop\\homework\\elnet\\home_owners\\wwwroot\\images\\lagkawputi.png",
       "PackagePath": "staticwebassets\\images\\lagkawputi.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\OneDrive\\Desktop\\homework\\elnet\\home_owners\\wwwroot\\images\\person.png",
+      "PackagePath": "staticwebassets\\images\\person.png"
     },
     {
       "Id": "C:\\Users\\User\\OneDrive\\Desktop\\homework\\elnet\\home_owners\\wwwroot\\js\\site.js",

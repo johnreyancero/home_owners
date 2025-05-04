@@ -1,7 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD:obj/home_owners.csproj.nuget.dgspec.json
     "C:\\Users\\User\\OneDrive\\Desktop\\homework\\elnet\\home_owners\\home_owners.csproj": {}
   },
   "projects": {
@@ -13,28 +12,9 @@
         "projectPath": "C:\\Users\\User\\OneDrive\\Desktop\\homework\\elnet\\home_owners\\home_owners.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\User\\OneDrive\\Desktop\\homework\\elnet\\home_owners\\obj\\",
-=======
-    "C:\\Users\\XX908\\Desktop\\home_owners\\home_owners\\home_owners.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\XX908\\Desktop\\home_owners\\home_owners\\home_owners.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\XX908\\Desktop\\home_owners\\home_owners\\home_owners.csproj",
-        "projectName": "home_owners",
-        "projectPath": "C:\\Users\\XX908\\Desktop\\home_owners\\home_owners\\home_owners.csproj",
-        "packagesPath": "C:\\Users\\XX908\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\XX908\\Desktop\\home_owners\\home_owners\\obj\\",
->>>>>>> c1accfcb38875b636fe27777b8f630078f800a47:home_owners/obj/home_owners.csproj.nuget.dgspec.json
         "projectStyle": "PackageReference",
         "configFilePaths": [
-<<<<<<< HEAD:obj/home_owners.csproj.nuget.dgspec.json
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
-=======
-          "C:\\Users\\XX908\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
->>>>>>> c1accfcb38875b636fe27777b8f630078f800a47:home_owners/obj/home_owners.csproj.nuget.dgspec.json
         ],
         "originalTargetFrameworks": [
           "net8.0"

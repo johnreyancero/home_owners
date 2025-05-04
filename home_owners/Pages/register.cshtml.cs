@@ -1,6 +1,7 @@
-using home_owners.Data;
+using System.Security.Cryptography;
+using System.Text;
 using home_owners.Models;
-using Microsoft.AspNetCore.Identity;
+using home_owners.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -27,6 +28,12 @@ namespace home_owners.Pages
         [BindProperty]
         public string FirstName { get; set; }
 
+        [BindProperty]
+        public string Email { get; set; }
+
+        [BindProperty]
+        public string ContactNumber { get; set; }
+
         public string Message { get; set; }
 
         public void OnGet()
@@ -36,24 +43,37 @@ namespace home_owners.Pages
 
         public IActionResult OnPost()
         {
-            if (!string.IsNullOrEmpty(Username) && !string.IsNullOrEmpty(Password) &&
-                !string.IsNullOrEmpty(LastName) && !string.IsNullOrEmpty(FirstName))
+            if (!string.IsNullOrEmpty(Username) &&
+                !string.IsNullOrEmpty(Password) &&
+                !string.IsNullOrEmpty(LastName) &&
+                !string.IsNullOrEmpty(FirstName) &&
+                !string.IsNullOrEmpty(Email) &&
+                !string.IsNullOrEmpty(ContactNumber))
             {
                 var user = new User
                 {
                     Username = Username,
                     LastName = LastName,
-                    FirstName = FirstName
+                    FirstName = FirstName,
+                    Email = Email,
+                    ContactNumber = ContactNumber
                 };
 
-                var passwordHasher = new PasswordHasher<User>();
-                user.Password = passwordHasher.HashPassword(user, Password);
+                // Manually hash the password using SHA256
+                using (SHA256 sha256 = SHA256.Create())
+                {
+                    byte[] passwordBytes = Encoding.UTF8.GetBytes(Password);
+                    byte[] hashedPasswordBytes = sha256.ComputeHash(passwordBytes);
+                    string hashedPassword = Convert.ToBase64String(hashedPasswordBytes);
+                    
+                    user.Password = hashedPassword; // Store hashed password
+                }
 
+                // Save the user to the database
                 _context.Users.Add(user);
                 _context.SaveChanges();
 
                 Message = $"User {FirstName} {LastName} with username '{Username}' has been registered successfully.";
-
                 return RedirectToPage("/login");
             }
             else

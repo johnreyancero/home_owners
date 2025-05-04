@@ -1,2 +1,59 @@
 @page
 @model home_owners.Pages.LogoutModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: url('/images/bg.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .logout-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            width: 300px;
+        }
+        .logout-container h2 {
+            margin-bottom: 20px;
+        }
+        .logout-container p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .logout-container a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="logout-container">
+        <h2>You've successfully logged out</h2>
+        <p>Thank you for visiting. You are now logged out.</p>
+        <p>You will be redirected to the login page shortly.</p>
+        <a href="/login">Click here if you're not redirected.</a>
+    </div>
+
+    <script>
+        // Redirect to login page after 3 seconds
+        setTimeout(function() {
+            window.location.href = '/login';
+        }, 3000);
+    </script>
+
+</body>
+</html>

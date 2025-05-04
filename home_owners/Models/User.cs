@@ -19,5 +19,13 @@ namespace home_owners.Models
 
         [Column("lname")]
         public string LastName { get; set; }
+
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; }
+
+        [Required]
+        [RegularExpression(@"^\+?\d{10,15}$", ErrorMessage = "Invalid phone number.")]
+        public string ContactNumber { get; set; }
     }
 }
