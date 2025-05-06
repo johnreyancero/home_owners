@@ -16,7 +16,7 @@ public class Program
         // Configure the database context with MySQL
         builder.Services.AddDbContext<ApplicationDbContext>(options =>
             options.UseMySql(connectionString, 
-                new MySqlServerVersion(new Version(8, 0, 25))));
+                new MySqlServerVersion(new Version(10, 4, 32))));
 
         // Add exception filter for database development
         builder.Services.AddDatabaseDeveloperPageExceptionFilter();
