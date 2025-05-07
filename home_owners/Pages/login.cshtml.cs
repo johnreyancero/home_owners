@@ -51,8 +51,9 @@ namespace home_owners.Pages
 
                 if (result == PasswordVerificationResult.Success)
                 {
-                    HttpContext.Session.SetString("AdminId", admin.Id.ToString());
+                    HttpContext.Session.SetInt32("AdminId", admin.Id);
                     HttpContext.Session.SetString("Username", admin.Username);
+                    HttpContext.Session.SetString("Role", "admin");
                     return RedirectToPage("/Admin/AdminDashboard", new { adminId = admin.Id });
                 }
             }
@@ -66,8 +67,9 @@ namespace home_owners.Pages
 
                 if (result == PasswordVerificationResult.Success)
                 {
-                    HttpContext.Session.SetString("UserId", user.Id.ToString());
+                    HttpContext.Session.SetInt32("UserId", user.Id);
                     HttpContext.Session.SetString("Username", user.Username);
+                    HttpContext.Session.SetString("Role", "user");
                     return RedirectToPage("/Users/UserHomePage", new { userId = user.Id });
                 }
             }

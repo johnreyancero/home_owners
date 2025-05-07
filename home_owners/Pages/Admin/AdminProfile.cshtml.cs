@@ -1,36 +1,35 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using home_owners.Data; // Adjust namespace
-using home_owners.Models; // Your custom User model's namespace
+using home_owners.Data;
 using System.Threading.Tasks;
 using System.Linq;
 
-namespace home_owners.Pages.Users
+namespace home_owners.Pages.Admin
 {
-    public class UserProfileModel : PageModel
+    public class AdminProfileModel : PageModel
     {
         private readonly ApplicationDbContext _context;
 
-        public UserProfileModel(ApplicationDbContext context)
+        public AdminProfileModel(ApplicationDbContext context)
         {
             _context = context;
         }
 
         [BindProperty]
-        public User User { get; set; }
+        public home_owners.Models.Admin Admin { get; set; }
 
         public async Task<IActionResult> OnGetAsync()
         {
-            int? userId = HttpContext.Session.GetInt32("UserId");
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
 
-            if (userId == null)
+            if (adminId == null)
             {
                 return RedirectToPage("/Login"); // Or some fallback
             }
 
-            User = await _context.Users.FindAsync(userId.Value);
+            Admin = await _context.Admins.FindAsync(adminId.Value);
 
-            if (User == null)
+            if (Admin == null)
             {
                 return NotFound();
             }
@@ -45,16 +44,16 @@ namespace home_owners.Pages.Users
                 return Page();
             }
 
-            var userToUpdate = await _context.Users.FindAsync(User.Id);
-            if (userToUpdate == null)
+            var adminToUpdate = await _context.Admins.FindAsync(Admin.Id);
+            if (adminToUpdate == null)
             {
                 return NotFound();
             }
 
-            userToUpdate.FirstName = User.FirstName;
-            userToUpdate.LastName = User.LastName;
-            userToUpdate.Email = User.Email;
-            userToUpdate.ContactNumber = User.ContactNumber;
+            adminToUpdate.Firstname = Admin.Firstname;
+            adminToUpdate.Firstname = Admin.Lastname;
+            adminToUpdate.Email = Admin.Email;
+            adminToUpdate.ContactNumber = Admin.ContactNumber;
 
             await _context.SaveChangesAsync();
             return RedirectToPage(); // Refresh page after save
