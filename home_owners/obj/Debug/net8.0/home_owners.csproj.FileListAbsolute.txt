@@ -946,3 +946,5 @@ C:\Users\User\OneDrive\Desktop\homework\elnet\home_owners\obj\Debug\net8.0\refin
 C:\Users\User\OneDrive\Desktop\homework\elnet\home_owners\obj\Debug\net8.0\home_owners.pdb
 C:\Users\User\OneDrive\Desktop\homework\elnet\home_owners\obj\Debug\net8.0\home_owners.genruntimeconfig.cache
 C:\Users\User\OneDrive\Desktop\homework\elnet\home_owners\obj\Debug\net8.0\ref\home_owners.dll
+C:\Users\tt415\Source\Repos\home_owners\home_owners\bin\Debug\net8.0\MySqlConnector.dll
+C:\Users\tt415\Source\Repos\home_owners\home_owners\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.dll

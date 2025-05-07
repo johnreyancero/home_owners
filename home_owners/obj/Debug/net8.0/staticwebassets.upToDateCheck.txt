@@ -5,10 +5,17 @@ wwwroot\images\amenities.png
 wwwroot\images\bg.png
 wwwroot\images\bike.png
 wwwroot\images\contact.png
+wwwroot\images\exit.png
+wwwroot\images\gear.png
 wwwroot\images\Homeamenities.png
+wwwroot\images\house.png
+wwwroot\images\house-elite.png
+wwwroot\images\house-haven.png
+wwwroot\images\house-prime.png
 wwwroot\images\lagkaw.png
 wwwroot\images\lagkawputi.png
 wwwroot\images\PAGE2OK.png
+wwwroot\images\person.png
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map

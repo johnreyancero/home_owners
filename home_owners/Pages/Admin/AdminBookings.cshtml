@@ -1,0 +1,117 @@
+@page
+@model home_owners.Pages.Admin.AdminBookingsModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="~/css/globals.css" />
+    <link rel="stylesheet" href="~/css/styles.css" />
+</head>
+<body>
+    <div class="desktop">
+        <div class="div">
+            <div class="overlap">
+                <div class="group">
+                    <div class="overlap-group">
+                        <img class="lagkaw" src="~/img/lagkaw-5.png" alt="Lagkaw Logo" />
+                    </div>
+                </div>
+
+                @for (int i = 0; i < 16; i++)
+                {
+                    <div class="annotation">
+                        <div class="dot">
+                            <div class="my-text">0</div>
+                        </div>
+                    </div>
+                }
+
+                <div class="text-wrapper">ADMIN DASHBOARD</div>
+            </div>
+
+            <div class="overlap-2">
+                <img class="rectangle" src="~/img/rectangle-28.svg" alt="Sidebar Background" />
+                <div class="text-wrapper-2">BOARD</div>
+
+                <div class="overlap-wrapper">
+                    <div class="div-wrapper">
+                        <div class="text-wrapper-3">CUSTOMERS</div>
+                    </div>
+                </div>
+
+                <div class="overlap-group-wrapper">
+                    <div class="overlap-3">
+                        <div class="text-wrapper-3">RESERVATION</div>
+                    </div>
+                </div>
+
+                <div class="group-2">
+                    <div class="overlap-4">
+                        <div class="text-wrapper-3">BOOKINGS</div>
+                    </div>
+                </div>
+
+                <div class="group-wrapper">
+                    <div class="group-3">
+                        <div class="overlap-group-2">
+                            <div class="text-wrapper-3">DASHBOARD</div>
+                        </div>
+                    </div>
+                </div>
+
+                <img class="img" src="~/img/rectangle-29.svg" alt="Dashboard Content BG" />
+                <div class="text-wrapper-4">Confirmed</div>
+
+                <img class="rectangle-2" src="~/img/rectangle-37.svg" />
+                <img class="rectangle-3" src="~/img/rectangle-48.svg" />
+                <img class="rectangle-4" src="~/img/rectangle-50.svg" />
+                <img class="rectangle-5" src="~/img/rectangle-51.svg" />
+                <img class="rectangle-6" src="~/img/rectangle-52.svg" />
+                <img class="rectangle-7" src="~/img/rectangle-44.svg" />
+                <img class="rectangle-8" src="~/img/rectangle-45.svg" />
+                <img class="rectangle-9" src="~/img/rectangle-46.svg" />
+                <img class="rectangle-10" src="~/img/rectangle-47.svg" />
+
+                <div class="text-wrapper-5">CHECK-INS</div>
+                <div class="text-wrapper-6">75</div>
+                <div class="text-wrapper-7">12</div>
+                <div class="text-wrapper-8">105</div>
+                <div class="text-wrapper-9">$ 1,205</div>
+
+                <div class="text-wrapper-10">CANCELLATION</div>
+                <div class="text-wrapper-11">TOTAL BOOKINGS</div>
+                <div class="text-wrapper-12">REVENUE</div>
+                <div class="text-wrapper-13">Recent Bookings</div>
+
+                <div class="text-wrapper-14">GUEST</div>
+                <div class="text-wrapper-31">CHECK-IN</div>
+                <div class="text-wrapper-32">CHECK-OUT</div>
+                <div class="text-wrapper-33">ROOM</div>
+
+                @foreach (var booking in Model.Bookings)
+                {
+                    <div class="booking-entry">
+                        <div class="text-wrapper-15">@booking.GuestName</div>
+                        <div class="text-wrapper-25">@booking.CheckInDate.ToString("MMM dd")</div>
+                        <div class="text-wrapper-26">@booking.CheckOutDate.ToString("MMM dd")</div>
+                        <div class="text-wrapper-22">@booking.RoomName</div>
+                        <div class="text-wrapper-21">@booking.Status</div>
+                    </div>
+                }
+
+                <div class="group-4">
+                    <div class="overlap-5">
+                        <div class="text-wrapper-34">Log out</div>
+                    </div>
+                </div>
+
+                <div class="text-wrapper-35">DASH</div>
+                <img class="line" src="~/img/line-1.svg" />
+                <img class="line-2" src="~/img/line-2.svg" />
+                <img class="line-3" src="~/img/line-3.svg" />
