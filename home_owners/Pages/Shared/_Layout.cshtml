@@ -2,6 +2,7 @@
 
 @{
     var username = Context.Session.GetString("Username");
+    var role = Context.Session.GetString("Role"); // Expected to be "admin" or "user"
 }
 
 <!DOCTYPE html>
@@ -40,7 +41,14 @@
                             @if (!string.IsNullOrEmpty(username))
                             {
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" asp-page="/Users/UserProfile">Profile</a>
+                                    @if (role == "admin")
+                                    {
+                                        <a class="nav-link text-white" asp-page="/Admin/AdminProfile">Profile</a>
+                                    }
+                                    else if (role == "user")
+                                    {
+                                        <a class="nav-link text-white" asp-page="/Users/UserProfile">Profile</a>
+                                    }
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-white" asp-page="/Logout">Logout</a>
@@ -49,7 +57,7 @@
                             else
                             {
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" asp-page="/login">Login/Register</a>
+                                    <a class="nav-link text-white" asp-page="/Login">Login/Register</a>
                                 </li>
                             }
                         </ul>

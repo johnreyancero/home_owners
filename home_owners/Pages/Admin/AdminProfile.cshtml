@@ -1,11 +1,11 @@
-@page "/Users/UserProfile"
-@model home_owners.Pages.Users.UserProfileModel
+@page "/Admin/AdminProfile"
+@model home_owners.Pages.Admin.AdminProfileModel
 @{
-    ViewData["Title"] = "User Profile";
+    ViewData["Title"] = "Admin Profile";
 }
 
 <style>
-    .user-profile-container {
+    .admin-profile-container {
         display: flex;
         background: white;
         border-radius: 10px;
@@ -59,7 +59,7 @@
         background: #ccc;
     }
 
-    .user-details {
+    .admin-details {
         color: #333;
         flex-grow: 1;
     }
@@ -85,11 +85,11 @@
     }
 </style>
 
-<div class="user-profile-container">
+<div class="admin-profile-container">
     <div class="sidebar">
-        <h5>User Profile</h5>
+        <h5>Admin Profile</h5>
         <ul class="nav flex-column">
-            <li class="nav-item"><i class="bi bi-person"></i> User Info</li>
+            <li class="nav-item"><i class="bi bi-person"></i> Admin Info</li>
             <li class="nav-item"><i class="bi bi-house"></i> Home</li>
             <li class="nav-item"><i class="bi bi-gear"></i> Settings</li>
             <li class="nav-item"><i class="bi bi-box-arrow-right"></i> Logout</li>
@@ -99,10 +99,10 @@
     <div class="profile-main">
         <div class="profile-header">
             <img src="~/images/person.png" alt="Avatar" class="avatar" />
-            <div class="user-details">
-                <strong>@Model.User.FirstName @Model.User.LastName</strong><br />
-                @Model.User.Email<br />
-                @Model.User.ContactNumber
+            <div class="admin-details">
+                <strong>@Model.Admin.Firstname @Model.Admin.Lastname</strong><br />
+                @Model.Admin.Email<br />
+                @Model.Admin.ContactNumber
             </div>
             <button class="btn btn-outline-dark change-btn">Change</button>
         </div>
@@ -110,19 +110,19 @@
         <form method="post">
             <div class="form-group mt-4">
                 <label>First Name</label>
-                <input type="text" class="form-control" asp-for="User.FirstName" />
+                <input type="text" class="form-control" asp-for="Admin.Firstname" />
             </div>
             <div class="form-group">
                 <label>Last Name</label>
-                <input type="text" class="form-control" asp-for="User.LastName" />
+                <input type="text" class="form-control" asp-for="Admin.Lastname" />
             </div>
             <div class="form-group">
                 <label>Email</label>
-                <input type="email" class="form-control" asp-for="User.Email" />
+                <input type="email" class="form-control" asp-for="Admin.Email" />
             </div>
             <div class="form-group">
                 <label>Phone</label>
-                <input type="text" class="form-control" asp-for="User.ContactNumber" />
+                <input type="text" class="form-control" asp-for="Admin.ContactNumber" />
             </div>
             <button type="submit" class="btn btn-outline-dark mt-3">Save</button>
         </form>

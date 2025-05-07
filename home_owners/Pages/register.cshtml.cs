@@ -1,9 +1,9 @@
-using System.Security.Cryptography;
-using System.Text;
+using System.ComponentModel.DataAnnotations;
 using home_owners.Models;
 using home_owners.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Identity; // For PasswordHasher
 
 namespace home_owners.Pages
 {
@@ -17,38 +17,39 @@ namespace home_owners.Pages
         }
 
         [BindProperty]
+        [Required]
         public string Username { get; set; }
 
         [BindProperty]
+        [Required]
         public string Password { get; set; }
 
         [BindProperty]
+        [Required]
         public string LastName { get; set; }
 
         [BindProperty]
+        [Required]
         public string FirstName { get; set; }
 
         [BindProperty]
+        [Required]
         public string Email { get; set; }
 
         [BindProperty]
+        [Required]
         public string ContactNumber { get; set; }
 
         public string Message { get; set; }
 
         public void OnGet()
         {
-            // This method is called when the page is accessed via a GET request.
+            // Handle GET request
         }
 
         public IActionResult OnPost()
         {
-            if (!string.IsNullOrEmpty(Username) &&
-                !string.IsNullOrEmpty(Password) &&
-                !string.IsNullOrEmpty(LastName) &&
-                !string.IsNullOrEmpty(FirstName) &&
-                !string.IsNullOrEmpty(Email) &&
-                !string.IsNullOrEmpty(ContactNumber))
+            if (ModelState.IsValid)
             {
                 var user = new User
                 {
@@ -59,17 +60,10 @@ namespace home_owners.Pages
                     ContactNumber = ContactNumber
                 };
 
-                // Manually hash the password using SHA256
-                using (SHA256 sha256 = SHA256.Create())
-                {
-                    byte[] passwordBytes = Encoding.UTF8.GetBytes(Password);
-                    byte[] hashedPasswordBytes = sha256.ComputeHash(passwordBytes);
-                    string hashedPassword = Convert.ToBase64String(hashedPasswordBytes);
-                    
-                    user.Password = hashedPassword; // Store hashed password
-                }
+                // Use ASP.NET Core's password hasher
+                var hasher = new PasswordHasher<User>();
+                user.Password = hasher.HashPassword(user, Password);
 
-                // Save the user to the database
                 _context.Users.Add(user);
                 _context.SaveChanges();
 
