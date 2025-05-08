@@ -2,7 +2,9 @@
 
 @{
     var username = Context.Session.GetString("Username");
-    var role = Context.Session.GetString("Role"); // Expected to be "admin" or "user"
+    var role = Context.Session.GetString("Role");
+    var notification = TempData["Notification"] as string;
+    var unreadCount = ViewData["UnreadCount"] as int? ?? 0;
 }
 
 <!DOCTYPE html>
@@ -14,6 +16,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/home_owners.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
 </head>
 <body>
     <div class="hero-section">
@@ -29,15 +32,35 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link text-white" asp-page="/Index1" asp-fragment="amenities">Amenities</a>
+
+                            <!-- Notification Bell Dropdown -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link text-white position-relative" href="#" id="notificationDropdown"
+                                   role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-bell" style="font-size: 1.3rem;"></i>
+                                    @if (unreadCount > 0)
+                                    {
+                                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                            @unreadCount
+                                            <span class="visually-hidden">unread messages</span>
+                                        </span>
+                                    }
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown">
+                                    <li><h6 class="dropdown-header">Notifications</h6></li>
+                                    <li><a class="dropdown-item" href="#">New message received</a></li>
+                                    <li><a class="dropdown-item" href="#">Your request was approved</a></li>
+                                    <li><a class="dropdown-item" href="#">Reminder: Meeting at 3 PM</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item text-center text-primary" href="#" onclick="showNotification()">View All</a></li>
+                                </ul>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" href="/Index1#about">About Us</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" href="/Index1#contact">Contact</a>
-                            </li>
+
+                            <!-- Standard Navigation Items -->
+                            <li class="nav-item"><a class="nav-link text-white" asp-page="/Index1" asp-fragment="amenities">Amenities</a></li>
+                            <li class="nav-item"><a class="nav-link text-white" href="/Index1#about">About Us</a></li>
+                            <li class="nav-item"><a class="nav-link text-white" href="/Index1#contact">Contact</a></li>
+
                             @if (!string.IsNullOrEmpty(username))
                             {
                                 <li class="nav-item">
@@ -56,9 +79,7 @@
                             }
                             else
                             {
-                                <li class="nav-item">
-                                    <a class="nav-link text-white" asp-page="/Login">Login/Register</a>
-                                </li>
+                                <li class="nav-item"><a class="nav-link text-white" asp-page="/Login">Login/Register</a></li>
                             }
                         </ul>
                     </div>
@@ -73,9 +94,59 @@
         </div>
     </div>
 
+    <!-- Notification Modal -->
+    <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header bg-warning text-dark">
+                    <h5 class="modal-title" id="notificationModalLabel">Notification</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    @notification ?? "This is a sample notification. You can customize this message."
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script>
+        // Ensure the dropdown only opens when the bell is clicked
+        $(document).ready(function() {
+            $('.dropdown-menu').hide();
+            
+            $('#notificationDropdown').on('click', function (e) {
+                var $el = $(this).next('.dropdown-menu');
+                var isVisible = $el.is(':visible');
+
+                // Close all dropdowns
+                $('.dropdown-menu').hide();
+
+                // Toggle the clicked dropdown if it's not already open
+                if (!isVisible) {
+                    $el.show();
+                }
+            });
+
+            // Hide dropdown when clicking outside
+            $(document).on('click', function (e) {
+                if (!$(e.target).closest('.dropdown').length) {
+                    $('.dropdown-menu').hide();
+                }
+            });
+        });
+
+        function showNotification() {
+            var modal = new bootstrap.Modal(document.getElementById('notificationModal'));
+            modal.show();
+        }
+    </script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

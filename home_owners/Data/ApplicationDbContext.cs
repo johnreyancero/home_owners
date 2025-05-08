@@ -13,5 +13,8 @@ namespace home_owners.Data
         public DbSet<User> Users { get; set; }  // Use your custom User model here
         public DbSet<Admin> Admins { get; set; }
 
+        public DbSet<Notification> Notifications { get; set; }
+
+        public DbSet<Booking> Bookings { get; set; }
     }
 }

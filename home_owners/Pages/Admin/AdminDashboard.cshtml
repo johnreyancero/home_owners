@@ -11,7 +11,7 @@
         <div>
             <h2 style="color: #1A3A3A; font-weight: 800;">DASH<br>BOARD</h2>
             <button class="btn btn-warning w-100 mb-3">DASHBOARD</button>
-            <button class="btn btn-warning w-100 mb-3">BOOKINGS</button>
+            <a class="btn btn-warning w-100 mb-3" asp-page="/Admin/AdminBookings">BOOKINGS</a>
             <button class="btn btn-warning w-100 mb-3">CUSTOMERS</button>
             <button class="btn btn-warning w-100 mb-3">RESERVATION</button>
         </div>
@@ -30,25 +30,25 @@
             <div class="col-md-3">
                 <div class="card text-center p-3">
                     <h5>CHECK-INS</h5>
-                    <h2>75</h2>
+                    <h2>75</h2> <!-- You can make this dynamic if needed -->
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="card text-center p-3">
                     <h5>CANCELLATION</h5>
-                    <h2>12</h2>
+                    <h2>12</h2> <!-- You can make this dynamic if needed -->
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="card text-center p-3">
                     <h5>TOTAL BOOKINGS</h5>
-                    <h2>105</h2>
+                    <h2>@Model.TotalBookings</h2> <!-- Dynamic total bookings -->
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="card text-center p-3">
                     <h5>REVENUE</h5>
-                    <h2>$ 1,205</h2>
+                    <h2>$1,205</h2> <!-- You can make this dynamic if needed -->
                 </div>
             </div>
         </div>
@@ -65,30 +65,15 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Emily Smith</td>
-                    <td>April 15</td>
-                    <td>Lagkaw Elite</td>
-                    <td>Checked In</td>
-                </tr>
-                <tr>
-                    <td>Jane Johnson</td>
-                    <td>April 20</td>
-                    <td>Lagkaw Haven</td>
-                    <td>Cancelled</td>
-                </tr>
-                <tr>
-                    <td>Sarah Doe</td>
-                    <td>May 1</td>
-                    <td>Lagkaw Prime</td>
-                    <td>Checked In</td>
-                </tr>
-                <tr>
-                    <td>Michael Brown</td>
-                    <td>May 2</td>
-                    <td>Lagkaw Elite</td>
-                    <td>Confirmed</td>
-                </tr>
+                @foreach (var booking in Model.RecentBookings)
+                {
+                    <tr>
+                        <td>@booking.GuestName</td>
+                        <td>@booking.CheckIn.ToString("MMMM dd")</td>
+                        <td>@booking.CheckOut.ToString("MMMM dd")</td>
+                        <td>@booking.RoomName</td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>

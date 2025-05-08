@@ -1,0 +1,66 @@
+@page
+@model home_owners.Pages.Users.BookingPageModel
+@{
+    ViewData["Title"] = "Book a Home";
+    var homeType = Model.SelectedHomeType?.ToLower() ?? "";
+    string imagePath = "";
+    string description = "";
+
+    switch (homeType)
+    {
+        case "lagkaw elite":
+            imagePath = Url.Content("~/images/house-elite.png");
+            description = "High-end, spacious homes with premium designs, smart tech, private parking, and gardens.";
+            break;
+        case "lagkaw prime":
+            imagePath = Url.Content("~/images/house-prime.png");
+            description = "Modern, functional homes with energy efficiency, perfect for families with open living spaces.";
+            break;
+        case "lagkaw haven":
+            imagePath = Url.Content("~/images/house-haven.png");
+            description = "Cost-effective and practical homes for professionals and families, with access to essentials.";
+            break;
+        default:
+            imagePath = Url.Content("~/images/default.png");
+            description = "No home selected or type unrecognized.";
+            break;
+    }
+}
+
+<div class="container mt-5 text-dark">
+    <h2 class="mb-4">Book @Model.SelectedHomeType</h2>
+
+    <div class="card mb-4">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="@imagePath" alt="Home Image" class="img-fluid rounded-start" />
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">@Model.SelectedHomeType</h5>
+                    <p class="card-text">@description</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form method="post">
+        <div class="mb-3">
+            <label for="CheckIn" class="form-label">Check-In Date</label>
+            <input type="date" class="form-control" asp-for="CheckIn" required />
+        </div>
+
+        <div class="mb-3">
+            <label for="CheckOut" class="form-label">Check-Out Date</label>
+            <input type="date" class="form-control" asp-for="CheckOut" required />
+        </div>
+
+        <div class="mb-3">
+            <label for="SpecialRequest" class="form-label">Special Request</label>
+            <textarea class="form-control" asp-for="SpecialRequest" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-success me-2">Book Now</button>
+        <a href="/Users/UserHomepage" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

@@ -1,0 +1,58 @@
+@page
+@model home_owners.Pages.Admin.AdminGuestInfoModel
+@{
+    ViewBag.Title = "Guest Info";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div style="display: flex; height: 100vh; background: url('/images/bg-image.jpg') no-repeat center center fixed; background-size: cover;">
+    <!-- Sidebar -->
+    <div style="width: 250px; background-color: rgba(255, 165, 0, 0.3); padding: 20px; display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+            <h2 style="color: #1A3A3A; font-weight: 800;">DASH<br>BOARD</h2>
+            <a class="btn btn-warning w-100 mb-3" asp-page="/Admin/AdminDashboard">DASHBOARD</a>
+            <a class="btn btn-warning w-100 mb-3" asp-page="/Admin/AdminBookings">BOOKINGS</a>
+            <button class="btn btn-warning w-100 mb-3">CUSTOMERS</button>
+            <button class="btn btn-warning w-100 mb-3">RESERVATION</button>
+        </div>
+        <div>
+            <button class="btn btn-danger w-100">Log out</button>
+            <p class="text-center mt-3" style="font-size: 12px;">@DateTime.Now.ToString("MMMM dd, yyyy")</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div style="flex: 1; padding: 30px; color: #1A3A3A;">
+        <h1 style="font-weight: 800;">GUEST INFO</h1>
+
+        @if (Model.GuestInfo != null)
+        {
+            <p><strong>Name:</strong> @Model.GuestInfo.GuestName</p>
+            <p><strong>Email:</strong> @Model.GuestInfo.Email</p>
+            <p><strong>Contact:</strong> @Model.GuestInfo.Contact</p>
+            <p><strong>Room:</strong> @Model.GuestInfo.RoomName</p>
+            <p><strong>Check-in:</strong> @Model.GuestInfo.CheckIn.ToString("MM/dd/yyyy")</p>
+            <p><strong>Check-out:</strong> @Model.GuestInfo.CheckOut.ToString("MM/dd/yyyy")</p>
+            <p><strong>Special Request:</strong> @Model.GuestInfo.SpecialRequest</p>
+        }
+        else
+        {
+            <p class="text-danger">Guest not found. Please check the booking ID.</p>
+        }
+    </div>
+</div>
+
+<style>
+    .btn-warning {
+        background-color: orange;
+        border: none;
+        font-weight: bold;
+    }
+    .btn-danger {
+        background-color: #8B0000;
+        border: none;
+    }
+    .table {
+        background-color: #fff;
+    }
+</style>
